@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+/* @import url('https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap'); */
+.navbar{
+    /* position: fixed; */
+    
+    padding: 3vh 6vw;
+    display: flex;
+    /* width: 100%; */
+    justify-content: space-between;
+    /* gap: 25em; */
+    align-items: center;
+    
+}
+.navLinks{
+    /* display: flex;
+    align-items: center;
+
+    /* gap: 22vw; */
+    /* justify-content: space-between; */
+    font-family: 'Roboto', sans-serif;
+    font-size: clamp(1.5em,1.25em,1em);
+}
+.navItems{
+    display: flex;
+    width: max-content;
+    align-items: center ;
+    gap: 1em; 
+}
+
+    
+    
+.bloggerStop{
+    
+    font-size: clamp(1.7em,1.25em,1em);
+    color: black;
+    font-family: 'Lobster', cursive;
+    text-decoration: none;
+
+}
+.btn{
+    width: 5em;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    padding: .25em .75em;
+    border: white 3px solid;
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+.login{
+
+    background: #5075F6;
+    color: white;
+}
+.signUp{
+    background: white;
+    color: black;
+}
+.link{
+    text-decoration: none;
+    color: black;
+}
+.logout{
+    background: #000;
+    color: white;
+}
+.logout:hover{
+    background: white;
+    color: black;
+    border: 3px solid black;
+}
+.login:hover{
+    background: white;
+    color:#5075F6;
+    border: #5075F6 solid 3px;
+}
+.signUp:hover{
+    background: black;
+    color: white;
+    border: 3px solid white;
+}
+.link:hover{
+    text-decoration: underline;
+    font-weight: bold   ;
+    /* border: none; */
+}
+.hamburger{
+    display: none;
+    cursor: pointer;
+}
+.loader{
+    width: 10vh;
+}
+.mid{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.buttons{
+
+    font-family: 'Roboto', sans-serif;
+    font-size: clamp(1.5em,1.25em,1em);
+}
+@media(max-width:990px){
+    .hamburger{
+        z-index: 2;
+        display: flex;
+
+    }
+    .navLinks-mobile{
+        display: none;
+    }
+    .navbar{
+        padding:1em .5em ;
+        flex-direction: row;
+        justify-content: space-between;
+        /* gap: 0; */
+        /* align-items: center; */
+        /* gap: 10px; */
+    }
+    .navItems{
+        /* z-index: 2; */
+        flex-direction: column;
+        width: 100vw;
+        /* justify-content: space-between; */
+        /* gap: 40px; */
+    }
+    .navLinks{
+        
+        background: white;
+        
+        flex-direction: column;
+        justify-content: flex-start;
+       
+        align-items: center;
+        height: 90vh;
+     
+        position: absolute;
+        /* gap: 40px; */
+        top: 0%;
+        padding-top: 10vh ;
+        right: 0;
+    }
+    .buttons{
+        position: absolute;
+        
+        flex-direction: column;
+        justify-content: flex-start;
+       
+        align-items: center;
+        height: 90vh;
+     
+        position: absolute;
+        /* gap: 40px; */
+        top: 32vh;
+        /* padding-top: 33vh ; */
+        right: 0;
+        /* top: 22vh; */
+    }
+    .btn{
+        border-radius: 0;
+        font-weight: normal;
+        padding: 0;
+        background: none;
+        color: black;
+        width: max-content;
+        border: none;
+    }
+    .btn:hover{
+        background: none;
+        border: none;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+    .login:hover{
+        color: black;
+        background: none;
+        border: none;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+    .signUp:hover{
+        color: black;
+        background: none;
+        border: none;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+    
+}
