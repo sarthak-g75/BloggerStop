@@ -143,8 +143,8 @@
      
         position: absolute;
         /* gap: 40px; */
-        top: 0%;
-        padding-top: 10vh ;
+        top: 0;
+        padding-top: 5.5rem ;
         right: 0;
     }
     .buttons{
@@ -158,10 +158,10 @@
      
         position: absolute;
         /* gap: 40px; */
-        top: 32vh;
-        /* padding-top: 33vh ; */
+        /* bottom: 0; */
+        padding-top: 18.5rem ;
         right: 0;
-        /* top: 22vh; */
+        top: 0;
     }
     .btn{
         border-radius: 0;

@@ -8,13 +8,15 @@ import { motion } from "framer-motion";
 const BlogPage = () => {
   const context = useContext(blogContext);
   const { blogPage, getBlog } = context;
-  const [loading, setloading] = useState(true);
+  const [loading, setloading] = useState(false);
   const { id } = useParams();
   useEffect(() => {
-    getBlog(id);
-    setTimeout(() => {
+    setloading(true);
+    getBlog(id).then(()=>{
       setloading(false);
-    },500);
+    });
+
+
   }, []);
 
   return (
