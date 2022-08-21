@@ -134,7 +134,7 @@
     .navLinks{
         
         background: white;
-        
+        /* background-size: cover; */
         flex-direction: column;
         justify-content: flex-start;
        
@@ -159,9 +159,9 @@
         position: absolute;
         /* gap: 40px; */
         /* bottom: 0; */
-        padding-top: 18.5rem ;
+        /* padding-top:  ; */
         right: 0;
-        top: 0;
+        top: 18.5rem;
     }
     .btn{
         border-radius: 0;
