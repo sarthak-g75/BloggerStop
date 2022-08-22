@@ -9,15 +9,18 @@ import Notification from "./Notification";
 const LandingPage = () => {
   const context = useContext(blogContext);
   const { blogs, fetchAllBlogs,alert} = context;
-  const [loading, setloading] = useState(true);
+  const [loading, setloading] = useState(false);
   // const [notificationVisible, setnotificationVisible] = useState(false);
 
   useEffect(() => {
-    fetchAllBlogs();
-    document.title = "BloggerStop - Home"
-    setTimeout(() => {
+    setloading(true);
+    fetchAllBlogs().then(()=>{
       setloading(false);
-    }, 1200);
+    });
+    document.title = "BloggerStop - Home"
+    // setTimeout(() => {
+    //   setloading(false);
+    // }, 1200);
   
   }, []);
 
