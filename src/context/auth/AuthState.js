@@ -2,6 +2,7 @@ import AuthContext from "./authContext";
 // import React , {useState} from 'react'
 
 const AuthState = (props) => {
+  // const [authName, setauthName] = useState("")
   const host = "https://bloggerstopmern.herokuapp.com";
   // const [status, setStatus] = useState([])
   const login = async (email, password) => {

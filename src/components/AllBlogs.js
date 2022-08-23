@@ -2,24 +2,28 @@ import React, { useContext, useEffect, useState } from "react";
 import blogContext from "../context/blogs/blogContext";
 import Blog from "./Blog";
 import Pagination from "./Pagination";
-import { useParams,Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Loader from "./Loader";
 import { motion } from "framer-motion";
 
 const AllBlogs = () => {
   const context = useContext(blogContext);
   const { blogs, fetchAllBlogs } = context;
-  useEffect(() => {
-    fetchAllBlogs();
-    document.title = "BloggerStop - All Blogs"
-
-    setTimeout(() => {
-      setloading(false);
-    }, 1000);
-  }, []);
+  const [loading, setloading] = useState(false);
   const { no } = useParams();
+  useEffect(() => {
+    setloading(true);
+    fetchAllBlogs().then(() => {
+      setloading(() => {
+        setloading(false);
+      }, 200);
+    });
+    document.title = "BloggerStop - All Blogs";
+
+ 
+  }, []);
+ 
   // console.log(no);
-  const [loading, setloading] = useState(true);
   // const [currentPage, setcurrentPage] = useState(1);
   const [postPerPage] = useState(4);
 
@@ -33,28 +37,31 @@ const AllBlogs = () => {
         <Loader />
       ) : (
         <>
-          {blogs.length >= 1? <div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
-              className="allBlogs-bg"
-            ></motion.div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="allBlogs-bg-img"
-            ></motion.div>
-            {/* <Pagination postPerPage={postPerPage} totalPosts={blogs.length} /> */}
-            <Blog blogs={currentBlog} />
-            <Pagination
-              postPerPage={postPerPage}
-              totalPosts={blogs.length}
-              currentPage={no}
-            />
-          </div> :<div className="allBlogsPage">
-          <motion.div
+          {blogs.length >= 1 ? (
+            <div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.8 }}
+                className="allBlogs-bg"
+              ></motion.div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className="allBlogs-bg-img"
+              ></motion.div>
+              {/* <Pagination postPerPage={postPerPage} totalPosts={blogs.length} /> */}
+              <Blog blogs={currentBlog} />
+              <Pagination
+                postPerPage={postPerPage}
+                totalPosts={blogs.length}
+                currentPage={no}
+              />
+            </div>
+          ) : (
+            <div className="allBlogsPage">
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8 }}
@@ -82,8 +89,8 @@ const AllBlogs = () => {
                   Write Your Blog Today
                 </Link>
               </motion.div>
-            </div>}
-          
+            </div>
+          )}
         </>
       )}
     </>

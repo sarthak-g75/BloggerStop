@@ -42,7 +42,7 @@ const BlogPage = () => {
           <div className="blogPageElem"><strong> Genre: </strong> <div className="blogGenre">{blogPage.genre}</div></div>
           <div className="blogDescription">{blogPage.description}</div>
          
-            <div className="blogAuthor">-{blogPage.author}</div>
+            <div className="blogAuthor">- {blogPage.author}</div>
        
           {/* <div className="abs">{blogPage.likes}</div> */}
         </div>

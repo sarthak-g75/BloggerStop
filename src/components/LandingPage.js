@@ -8,25 +8,28 @@ import Loader from "./Loader";
 import Notification from "./Notification";
 const LandingPage = () => {
   const context = useContext(blogContext);
-  const { blogs, fetchAllBlogs,alert} = context;
+  const { blogs, fetchAllBlogs, alert } = context;
   const [loading, setloading] = useState(false);
   // const [notificationVisible, setnotificationVisible] = useState(false);
 
   useEffect(() => {
     setloading(true);
-    fetchAllBlogs().then(()=>{
-      setloading(false);
+    fetchAllBlogs().then(() => {
+      setloading(() => {
+        setloading(false);
+      }, 500);
     });
-    document.title = "BloggerStop - Home"
+    document.title = "BloggerStop - Home";
     // setTimeout(() => {
     //   setloading(false);
     // }, 1200);
-  
   }, []);
 
   return (
     <>
-      { alert.state && <Notification message={alert.message} type={alert.type} />}
+      {alert.state && (
+        <Notification message={alert.message} type={alert.type} />
+      )}
       <div className="bg_img"></div>
       <div className="bg"></div>
       <div className="container">
@@ -62,7 +65,6 @@ const LandingPage = () => {
             {loading ? (
               <Loader />
             ) : (
-              
               <div className="blogsBox">
                 {blogs.map((blog) => {
                   if (blog.privacy === "public") {
@@ -87,7 +89,7 @@ const LandingPage = () => {
                             : blog.description}
                         </span>
                         <div className="seperation">
-                          <h4>-{blog.author }</h4>
+                          <h4>-{blog.author}</h4>
                           <Link
                             className="readBtn"
                             to={`/BlogPage/${blog._id}`}
@@ -102,7 +104,6 @@ const LandingPage = () => {
                   }
                 })}
               </div>
-             
             )}
           </div>
         </motion.div>

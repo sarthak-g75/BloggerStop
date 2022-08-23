@@ -6,7 +6,7 @@ import authContext from "../auth/authContext";
 const BlogState = (props) => {
   const context = useContext(authContext);
 
-  const { getUser } = context;
+  const { getUser  } = context;
   const host = "https://bloggerstopmern.herokuapp.com";
   // let initialBlogs = [];
   let initialAlert = {
@@ -43,10 +43,11 @@ const BlogState = (props) => {
     const json = await response.json();
 
     // Adding Author's name to every blog
-    json.forEach(async (element, index) => {
-      await getUser(element.user).then((res) => {
+    json.forEach( (element, index) => {
+      getUser(element.user).then((res) => {
         if (res.success) {
           json[index].author = res.user.name;
+          console.log(res.user.name);
         }
       });
     });
@@ -71,12 +72,13 @@ const BlogState = (props) => {
       // setting the author
 
       json.author = res.user.name;
+      setblogPage(json);
+
+    return json;
     });
 
-    // setTimeout(() => {
-    setblogPage(json);
-    // }, 1000);
-    return json;
+    
+    
   };
 
   // API to get blogs of the logged in user

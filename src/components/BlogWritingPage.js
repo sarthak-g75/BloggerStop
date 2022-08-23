@@ -30,7 +30,9 @@ const BlogWritingPage = () => {
     e.preventDefault();
     if (title.length > 5 && description.length > 10 && genre.length > 3) {
       createBlog(title, description, genre).then((res) => {
-        history("/");
+        if(res.success){
+          history("/");
+        }
       });
     } else {
       alert(
