@@ -13,14 +13,14 @@ const LandingPage = () => {
   // const [notificationVisible, setnotificationVisible] = useState(false);
 
   useEffect(() => {
-    setloading(true);
-    setTimeout(() => {
-      // fetchAllBlogs().then(() => {
-        // console.table(blogs)
-        setloading(false);
-      // }, 500);
-    });
     document.title = "BloggerStop - Home";
+    setloading(true);
+    
+      fetchAllBlogs().then(() => {
+      // console.table(blogs)
+      setloading(false);
+      // }, 500);
+      });
   }, []);
 
   return (
@@ -87,7 +87,7 @@ const LandingPage = () => {
                             : blog.description}
                         </span>
                         <div className="seperation">
-                          <h4>-{blog.author.length>10 ? blog.author.substr(0,10) + "..." : blog.author}</h4>
+                          <h4>-{blog.author.length>15 ? blog.author.substr(0,15)+"...": blog.author}</h4>
                           <Link
                             className="readBtn"
                             to={`/BlogPage/${blog._id}`}
