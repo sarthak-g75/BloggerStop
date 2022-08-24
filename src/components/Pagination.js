@@ -26,7 +26,7 @@ const Pagination = ({ postPerPage, totalPosts,currentPage }) => {
   const maxNoForNextPage =  pageNumbers.length - 1;
   let nextPage = parseInt(currentPage)+1;
   let prevPage = parseInt(currentPage)-1;
-  console.log(currentPage)
+  // console.log(currentPage)
   return (
     <>
        {pageNumbers.length>1? <motion.ul 

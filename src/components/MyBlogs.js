@@ -11,14 +11,15 @@ const MyBlogs = () => {
   const history = useNavigate();
   const context = useContext(blogContext);
   const { blogs, getPersonalBlogs } = context;
+  const [loading, setloading] = useState(false);
+
   useEffect(() => {
     if (localStorage.getItem("auth-Token")) {
-      document.title = "BloggerStop - My Blogs"
-
-      getPersonalBlogs();
-      setTimeout(() => {
+      document.title = "BloggerStop - My Blogs";
+      setloading(true);
+      getPersonalBlogs().then(() => {
         setloading(false);
-      }, 1000);
+      });
     } else {
       history("/Login");
     }
@@ -26,7 +27,7 @@ const MyBlogs = () => {
 
   const { no } = useParams();
   // console.log(no);
-  const [loading, setloading] = useState(true);
+
   // const [currentPage, setcurrentPage] = useState(1);
   const [postPerPage] = useState(4);
 

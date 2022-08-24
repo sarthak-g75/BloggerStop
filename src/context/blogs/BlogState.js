@@ -43,14 +43,15 @@ const BlogState = (props) => {
     const json = await response.json();
 
     // Adding Author's name to every blog
-    json.forEach( (element, index) => {
-      getUser(element.user).then((res) => {
-        if (res.success) {
-          json[index].author = res.user.name;
-          console.log(res.user.name);
-        }
-      });
-    });
+    // json.forEach( (element, index) => {
+    //   getUser(element.user).then((res) => {
+    //     if (res.success) {
+    //       json[index].author = res.user.name;
+    //       // console.log(res.user.name);
+    //     }
+    //   });
+    // });
+    console.log(json)
     setBlogs(json);
 
     // console.log(json);
@@ -64,18 +65,27 @@ const BlogState = (props) => {
         "Content-Type": "application/json",
       },
     });
-    const json = await response.json();
+    const json = await response.json().then(
+      
+    );
 
     // calling the auth API to get author's name using user id
 
-    getUser(json.user).then((res) => {
-      // setting the author
+    // getUser(json.user).then((res) => {
+    //   // setting the author
 
-      json.author = res.user.name;
-      setblogPage(json);
-
-    return json;
-    });
+    //   json.author = res.user.name;
+    //   // console.log(blogPage);
+    //   if(json.user === res.user._id){
+        
+    //   }
+    //   // setTimeout(()=>{
+    //     //   setblogPage("");
+    //     // },1000);
+        
+    //     // return json;
+    //   });
+       setblogPage(json);
 
     
     

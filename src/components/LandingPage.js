@@ -14,15 +14,13 @@ const LandingPage = () => {
 
   useEffect(() => {
     setloading(true);
-    fetchAllBlogs().then(() => {
-      setloading(() => {
+    setTimeout(() => {
+      fetchAllBlogs().then(() => {
+        console.table(blogs)
         setloading(false);
       }, 500);
     });
     document.title = "BloggerStop - Home";
-    // setTimeout(() => {
-    //   setloading(false);
-    // }, 1200);
   }, []);
 
   return (
