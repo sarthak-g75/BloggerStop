@@ -46,15 +46,15 @@ const BlogCard = (props) => {
       <div className="section">
         <div className="titleNgenre seperation">
           <h2 className="title">
-            {title.length > 15 ? title.substr(0, 15) + "..." : title} |
+            {title.length > 10 ? title.substr(0, 10) + "..." : title} |
           </h2>
           <h4 className="genre">
-            {genre.length > 10 ? genre.substr(0, 10) + "..." : genre}
+            {genre.length > 7 ? genre.substr(0, 7) + "..." : genre}
           </h4>
         </div>
         <p className="description">
-          {description.length > 200
-            ? description.substr(0, 200) + "..."
+          {description.length > 100
+            ? description.substr(0, 100) + "..."
             : description}
         </p>
       </div>
@@ -79,7 +79,7 @@ const BlogCard = (props) => {
       ) : (
         <div className="titleNgenre">
           {" "}
-          <h3 className="author">-{author}</h3>
+          <h3 className="author">-{author.length>15 ? author.substr(0,15)+"..." : author}</h3>
           <Link className="readBtn" to={`/BlogPage/${_id}`}>
             Read Full Blog
           </Link>

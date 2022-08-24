@@ -3,8 +3,11 @@ import blogState from "../context/blogs/blogContext";
 import { useNavigate } from "react-router-dom";
 import "./styles/blogWriting.css";
 import { motion } from "framer-motion";
-
+import Notification from "./Notification";
+// import { set } from "mongoose";
 const BlogWritingPage = () => {
+  const [noti, setnoti] = useState(false)
+const [btnState, setbtnState] = useState(false);
   const history = useNavigate();
   const context = useContext(blogState);
   const { createBlog } = context;
@@ -27,6 +30,10 @@ const BlogWritingPage = () => {
     setgenre(e.target.value);
   };
   const createAttempt = (e) => {
+    setbtnState(true)
+    setTimeout(()=>{
+      setbtnState(false)
+  },1000)
     e.preventDefault();
     if (title.length > 5 && description.length > 10 && genre.length > 3) {
       createBlog(title, description, genre).then((res) => {
@@ -35,13 +42,17 @@ const BlogWritingPage = () => {
         }
       });
     } else {
-      alert(
-        "The Title should contain atleast 5 characters and description should contain atleast 10 characters and genre should contain atleast 3"
-      );
+      setnoti(true);
+        setTimeout(()=>{
+          setnoti(false);
+        },2000)
+      
     }
   };
   return (
     <>
+        {noti?<Notification message={"Please Fill the fields properly"} type={"danger"}/>:<></>}
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -107,7 +118,7 @@ const BlogWritingPage = () => {
               value={genre}
               onChange={setGenre}
             />
-            <button className="submitBtn" type="submit">
+            <button className="submitBtn" disabled={btnState} type="submit">
               Submit
             </button>
           </div>

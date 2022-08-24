@@ -81,12 +81,12 @@ const LandingPage = () => {
                               : blog.genre}
                           </h4>
                         </div>
-                        <span>
-                          {blog.description.length > 30
-                            ? blog.description.substr(0, 30) + "..."
+                        <span className="description">
+                          {blog.description.length > 20
+                            ? blog.description.substr(0, 20) + "..."
                             : blog.description}
                         </span>
-                        <div className="seperation">
+                        <div className="seperation ">
                           <h4>-{blog.author.length>15 ? blog.author.substr(0,15)+"...": blog.author}</h4>
                           <Link
                             className="readBtn"
