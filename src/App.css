@@ -69,10 +69,10 @@
   
 }
 .success{
-  background: rgba(46, 123, 46, 0.22);
+  background: lightgreen;
 }
 .danger{
-  background: rgba(255, 0, 0, 0.22);
+  background: rgba(255, 0, 0, 1);
 }
 .successText{
   color: darkgreen;
