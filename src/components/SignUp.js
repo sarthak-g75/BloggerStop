@@ -36,7 +36,7 @@ const SignUp = () => {
   };
   const SignUpAttempt = (e) => {
     e.preventDefault();
-    if (pass === conpass) {
+    if (pass === conpass && pass.length>5 && name.length>3) {
       signUp(name, email, pass).then((res) => {
         if (res.success) {
           localStorage.setItem("auth-Token", res.authToken);
@@ -44,17 +44,33 @@ const SignUp = () => {
         } else {
         
           setnoti(true);
-          setmessage("User already exist")
+          setmessage(res.error)
           setTimeout(()=>{
             setnoti(false);
             setmessage("");
           },2000)
         }
       });
-    } else {
+    } else if(pass !== conpass) {
         
       setnoti(true);
       setmessage("Passwords didn't match")
+      setTimeout(()=>{
+        setnoti(false);
+        setmessage("");
+      },2000)
+    }
+    else if(pass.length<5){
+      setnoti(true);
+      setmessage("Passwords should contain atleast 5 characters")
+      setTimeout(()=>{
+        setnoti(false);
+        setmessage("");
+      },2000)
+    }
+    else if(name.length<3){
+      setnoti(true);
+      setmessage("Username should contain atleast 5 characters")
       setTimeout(()=>{
         setnoti(false);
         setmessage("");
@@ -114,6 +130,7 @@ const SignUp = () => {
               name="password"
               onChange={setPass}
             />
+            <label htmlFor="password">(containing atleast 5 characters)</label>
           </div>
           <div className="formElem">
             <label htmlFor="Conpassword">Confirm Password</label>
