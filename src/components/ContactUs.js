@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import "../components/styles/forms.css";
 import { motion } from "framer-motion";
+import Notification from "./Notification";
 
 const ContactUs = () => {
   // const form = useRef();
   document.title = "BloggerStop - Contact Us"
-
+  const [message, setmessage] = useState("")
+  const [btnState, setbtnState] = useState(false);
+  const [noti, setnoti] = useState(false)
   const [contact, setcontact] = useState({
     subject: "",
     name: "",
@@ -22,7 +25,10 @@ const ContactUs = () => {
   const sendEmail = (e) => {
     // console.log(obj);
     e.preventDefault();
-
+    setbtnState(true)
+    setTimeout(()=>{
+      setbtnState(false)
+  },1000)
     emailjs
       .send(
         "service_y3mmdza",
@@ -37,7 +43,12 @@ const ContactUs = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
+          setnoti(true);
+          setmessage("message Sent successfully")
+          setTimeout(()=>{
+            setnoti(false);
+            setmessage("");
+          },2000)
         },
         (error) => {
           console.log(error.text);
@@ -53,6 +64,7 @@ const ContactUs = () => {
 
   return (
     <>
+     {noti?<Notification message={message} type={"success"}/>:<></>}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -126,7 +138,7 @@ const ContactUs = () => {
               name="message"
             />
           </div>
-          <button className="submitBtn" type="submit">
+          <button disabled={btnState} className="submitBtn" type="submit">
             Submit
           </button>
         </motion.form>
