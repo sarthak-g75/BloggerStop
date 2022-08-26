@@ -51,7 +51,9 @@ const SignUp = () => {
           },2000)
         }
       });
-    } else if(pass !== conpass) {
+    } 
+    //  checking if password matches
+    else if(pass !== conpass) {
         
       setnoti(true);
       setmessage("Passwords didn't match")
@@ -60,17 +62,19 @@ const SignUp = () => {
         setmessage("");
       },2000)
     }
+    // checking if pass is more than 5 chars or not
     else if(pass.length<5){
       setnoti(true);
-      setmessage("Passwords should contain atleast 5 characters")
+      setmessage("Password should contain atleast 5 characters")
       setTimeout(()=>{
         setnoti(false);
         setmessage("");
       },2000)
     }
+    // checking if username is more than 3 chars
     else if(name.length<3){
       setnoti(true);
-      setmessage("Username should contain atleast 5 characters")
+      setmessage("Username should contain atleast 3 characters")
       setTimeout(()=>{
         setnoti(false);
         setmessage("");
