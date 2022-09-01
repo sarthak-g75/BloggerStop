@@ -1,12 +1,10 @@
 // import React, { useState } from "react";
 import BlogContext from "./blogContext";
-import { useContext, useState } from "react";
-import authContext from "../auth/authContext";
+import { useState } from "react";
+
 
 const BlogState = (props) => {
-  const context = useContext(authContext);
 
-  const { getUser  } = context;
   const host = "https://bloggerstopmern.herokuapp.com";
   // let initialBlogs = [];
   let initialAlert = {
@@ -65,9 +63,7 @@ const BlogState = (props) => {
         "Content-Type": "application/json",
       },
     });
-    const json = await response.json().then(
-      
-    );
+    const json = await response.json()
 
     // calling the auth API to get author's name using user id
 
@@ -83,9 +79,9 @@ const BlogState = (props) => {
     //     //   setblogPage("");
     //     // },1000);
         
-    //     // return json;
+    setblogPage(json);
+        return json;
     //   });
-       setblogPage(json);
 
     
     
