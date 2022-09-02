@@ -65,20 +65,7 @@ const BlogState = (props) => {
     });
     const json = await response.json()
 
-    // calling the auth API to get author's name using user id
 
-    // getUser(json.user).then((res) => {
-    //   // setting the author
-
-    //   json.author = res.user.name;
-    //   // console.log(blogPage);
-    //   if(json.user === res.user._id){
-        
-    //   }
-    //   // setTimeout(()=>{
-    //     //   setblogPage("");
-    //     // },1000);
-        
     setblogPage(json);
         return json;
     //   });
