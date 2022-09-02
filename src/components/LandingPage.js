@@ -100,7 +100,7 @@ const LandingPage = () => {
                       </div>
                     );
                   }
-                }).reverse()}
+                })}
               </div>
             )}
           </div>

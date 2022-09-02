@@ -49,8 +49,8 @@ const BlogState = (props) => {
     //     }
     //   });
     // });
-    console.log(json)
-    setBlogs(json);
+    // console.log(json)
+    setBlogs(json.reverse());
 
     // console.log(json);
   };

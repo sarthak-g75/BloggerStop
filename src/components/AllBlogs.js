@@ -14,15 +14,14 @@ const AllBlogs = () => {
   useEffect(() => {
     setloading(true);
     fetchAllBlogs().then(() => {
-      setloading(() => {
         setloading(false);
-      }, 200);
+        
     });
     document.title = "BloggerStop - All Blogs";
 
  
   }, []);
- 
+
   // console.log(no);
   // const [currentPage, setcurrentPage] = useState(1);
   const [postPerPage] = useState(4);
