@@ -88,7 +88,7 @@ const BlogState = (props) => {
     
 
     // setTimeout(() => {
-    setBlogs(json);
+    setBlogs(json.reverse());
     // }, 500);
   };
 
