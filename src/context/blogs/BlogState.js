@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const BlogState = (props) => {
 
-  const host = "https://bloggerstopmern.herokuapp.com";
+  const host = "https://bloggerstop-backend.vercel.app";
   // let initialBlogs = [];
   let initialAlert = {
     state: false,
