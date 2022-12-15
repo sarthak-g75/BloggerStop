@@ -3,7 +3,7 @@ import AuthContext from "./authContext";
 
 const AuthState = (props) => {
   // const [authName, setauthName] = useState("")
-  const host = "https://bloggerstopmern.herokuapp.com";
+  const host = "https://bloggerstop-backend.vercel.app";
   // const [status, setStatus] = useState([])
   const login = async (email, password) => {
     const response = await fetch(`${host}/api/auth/login`, {
